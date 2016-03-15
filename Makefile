@@ -1,7 +1,6 @@
 TARGETS: build serve git 
 
-all:
-	${TARGETS}
+all: build
 
 serve:
 	jekyll serve&
