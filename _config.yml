@@ -9,7 +9,7 @@ local_url : http://localhost:4001
 description: "A blog by Youri Mouton"
 disqus_shortname: netbsd-news
 analytics: UA-75092906-1
-exclude: Makefile
+exclude: [ Makefile ]
 author :
   name : Youri Mouton
   github : nbyouri
