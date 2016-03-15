@@ -5,8 +5,13 @@
 	color: white!important;
 }
 a {
+	padding-bottom: 2px;
 	color: #F26711!important;
 }
 .navbar-inverse {
 	border-color: white!important;
+}
+
+a:hover {
+	border-bottom: 2px solid #F26711;
 }
