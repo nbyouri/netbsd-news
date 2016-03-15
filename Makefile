@@ -10,7 +10,7 @@ build:
 	jekyll build
 
 deploy: 
-	rsync -avhz _site/* youri@netbsd-news.me:~/netbsd-news/; 
+	rsync -avhz --rsh="ssh -p5555" _site/* youri@netbsd-news.me:~/netbsd-news/; 
 
 git:
 	git add -A;

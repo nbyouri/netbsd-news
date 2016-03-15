@@ -58,10 +58,10 @@
   
   </section>
 
-  <p>The pkgsrc 2013Q3 branch repo is almost finished compiling, it features all the port fixes I've been working on, and now the ports use the X11 libs from inside pkgsrc so XQuartz will only be needed to actually start the X server! I will try to get an X server working from pkgsrc to avoid having to install XQuartz from macosforge but that is more complicated than I first thought (I'll post about it later).</p>
+  <p>The pkgsrc 2013Q3 branch repo is almost finished compiling, it features all the port fixes I&rsquo;ve been working on, and now the ports use the X11 libs from inside pkgsrc so XQuartz will only be needed to actually start the X server! I will try to get an X server working from pkgsrc to avoid having to install XQuartz from macosforge but that is more complicated than I first thought (I&rsquo;ll post about it later).</p>
 
 <p>But more importantly, the packages are now signed! This means you can easily make sure the packages are coming from a trusted source (because you trust me, right?).
-I've got this idea from the awesome work of khorben, a NetBSD developer and leader of <a href="http://edgebsd.org">EdgeBSD</a>, whose project I'm also trying to help on. Check <a href="http://video.fosdem.org/2014/AW1121/Saturday/The_EdgeBSD_Project.webm">this</a> video if you want to learn more about it and learn more about package signing on pkgsrc. khorben pushed his changes to NetBSD so all that was needed was a <a href="http://lists.edgebsd.org/edgebsd-developers/2013/09/msg00001.html">patch</a> to the pkgsrc makefiles and a few config adjustments in mk.conf and pkg_install.conf.</p>
+I&rsquo;ve got this idea from the awesome work of khorben, a NetBSD developer and leader of <a href="http://edgebsd.org">EdgeBSD</a>, whose project I&rsquo;m also trying to help on. Check <a href="http://video.fosdem.org/2014/AW1121/Saturday/The_EdgeBSD_Project.webm">this</a> video if you want to learn more about it and learn more about package signing on pkgsrc. khorben pushed his changes to NetBSD so all that was needed was a <a href="http://lists.edgebsd.org/edgebsd-developers/2013/09/msg00001.html">patch</a> to the pkgsrc makefiles and a few config adjustments in mk.conf and pkg_install.conf.</p>
 
 <h2>Technical details</h2>
 
@@ -74,7 +74,7 @@ I've got this idea from the awesome work of khorben, a NetBSD developer and lead
     Key fingerprint = 81F7 EC68 C5BD 5DED 7A7B  2832 6A09 5CC6 2D99 C8F7
 </code></pre>
 
-<p>So how do the packages compare to the non signed ones? Here's the anatomy of a signed package:</p>
+<p>So how do the packages compare to the non signed ones? Here&rsquo;s the anatomy of a signed package:</p>
 
 <pre><code>    ──── ar -t /Volumes/pkgsrc/packages/All/nmap-6.40.tgz
     +PKG_HASH
@@ -82,7 +82,7 @@ I've got this idea from the awesome work of khorben, a NetBSD developer and lead
     nmap-6.40.tgz
 </code></pre>
 
-<p>It's a tgz archive which contains the signing information and the actual package which is the same as  the non signed packages.</p>
+<p>It&rsquo;s a tgz archive which contains the signing information and the actual package which is the same as  the non signed packages.</p>
 
 <p>The <code>+PKG_GPG_SIGNATURE</code> file contains the gpg public key needed to verify the authenticity of the package and the <code>+PKG_HASH</code> file contains hashes of every 40 bytes of the package files.</p>
 
@@ -103,7 +103,7 @@ I've got this idea from the awesome work of khorben, a NetBSD developer and lead
 <pre><code>    ──── gpg --edit-key 2D99C8F7
 </code></pre>
 
-<p>Then you'll be prompted which level of trust you want to set, then type <code>save</code> and you're done!</p>
+<p>Then you&rsquo;ll be prompted which level of trust you want to set, then type <code>save</code> and you&rsquo;re done!</p>
 
 <p>Add this to your /usr/pkg/etc/pkg_install.conf:</p>
 
@@ -113,7 +113,7 @@ I've got this idea from the awesome work of khorben, a NetBSD developer and lead
 
 <p>After the steps mentionned above, you can simply install packages as you used to.</p>
 
-<p>Here's an example:</p>
+<p>Here&rsquo;s an example:</p>
 
 <pre><code>    ──── sudo pkgin -y in gtk3+
     reading local summary...
@@ -137,7 +137,7 @@ I've got this idea from the awesome work of khorben, a NetBSD developer and lead
 
 <h2>How do I create signed packages?</h2>
 
-<p>First, you must apply khorben's <a href="http://git.edgebsd.org/gitweb/?p=edgebsd-pkgsrc.git;a=blobdiff;f=mk/pkgformat/pkg/package.mk;h=d75bad26e0c460f5d1d4c69bec0536a77de79da2;hp=cdee24570f4b98b71a7bca86b0e998b9db248336;hb=16c6eceef5b4a1314096b564d68e5d990a6ae5b1;hpb=45f514b94f43afdfd93f8f25ea30c56c29d23249">patch</a> on pkgsrc's makefiles</p>
+<p>First, you must apply khorben&rsquo;s <a href="http://git.edgebsd.org/gitweb/?p=edgebsd-pkgsrc.git;a=blobdiff;f=mk/pkgformat/pkg/package.mk;h=d75bad26e0c460f5d1d4c69bec0536a77de79da2;hp=cdee24570f4b98b71a7bca86b0e998b9db248336;hb=16c6eceef5b4a1314096b564d68e5d990a6ae5b1;hpb=45f514b94f43afdfd93f8f25ea30c56c29d23249">patch</a> on pkgsrc&rsquo;s makefiles</p>
 
 <p>Put your gpg ID in /usr/pkg/etc/pkg_install.conf, so for me:</p>
 
@@ -158,7 +158,7 @@ I've got this idea from the awesome work of khorben, a NetBSD developer and lead
 
 <blockquote><hr />
 
-<p>As a little bonus, here's a picture of my pkgsrc tree with a sticker I got at FOSDEM!</p></blockquote>
+<p>As a little bonus, here&rsquo;s a picture of my pkgsrc tree with a sticker I got at FOSDEM!</p></blockquote>
 
 <p><img src="http://i.imgur.com/rrGFaWz.jpg?1" alt="bonus" /></p>
 
