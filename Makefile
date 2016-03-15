@@ -1,6 +1,6 @@
 TARGETS: build serve git 
 
-all: build
+all: ${BUILD}
 
 serve:
 	jekyll serve&
@@ -9,7 +9,7 @@ build:
 	jekyll build
 
 deploy: 
-	rsync -avhz --rsh="ssh -p5555" _site/* youri@netbsd-news.me:~/netbsd-news/; 
+	rsync -avhz --rsh="ssh -p5555" _site/* youri@netbsd-news.me:/usr/pkg/share/www/netbsd-news/; 
 
 git:
 	git add -A;
